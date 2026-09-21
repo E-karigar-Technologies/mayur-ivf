@@ -32,16 +32,27 @@ class Home extends BaseController
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
 
-        // Process appointment request (can be persisted to database or emailed)
+        // Process and save appointment request to database
+        $inquiryModel = new \App\Models\InquiryModel();
+        
         $appointmentData = [
-            'name'    => $this->request->getPost('name'),
-            'phone'   => $this->request->getPost('phone'),
-            'email'   => $this->request->getPost('email'),
-            'age'     => $this->request->getPost('age'),
-            'date'    => $this->request->getPost('date'),
-            'type'    => $this->request->getPost('type'),
-            'message' => $this->request->getPost('message'),
+            'name'              => $this->request->getPost('name'),
+            'phone'             => $this->request->getPost('phone'),
+            'email'             => $this->request->getPost('email'),
+            'age'               => $this->request->getPost('age') ? (int) $this->request->getPost('age') : null,
+            'appointment_date'  => $this->request->getPost('date') ?: null,
+            'consultation_type' => $this->request->getPost('type') ?: 'IVF Consultation',
+            'message'           => $this->request->getPost('message'),
+            'status'            => 'New',
+            'created_at'        => date('Y-m-d H:i:s'),
+            'updated_at'        => date('Y-m-d H:i:s'),
         ];
+
+        try {
+            $inquiryModel->insert($appointmentData);
+        } catch (\Throwable $e) {
+            log_message('error', 'Failed to save inquiry: ' . $e->getMessage());
+        }
 
         if ($this->request->isAJAX()) {
             return $this->response->setJSON([
