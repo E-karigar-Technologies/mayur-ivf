@@ -92,7 +92,7 @@ $treatmentList = [
                 <div class="font-display text-[13px] font-bold text-white mb-5 uppercase tracking-[1px]">Treatments</div>
                 <div class="space-y-2">
                     <?php foreach ($treatmentList as $t): ?>
-                        <a href="#services" class="block text-[13.5px] text-[#9E9E9E] hover:text-[#ED709E] transition-colors">
+                        <a href="<?= base_url('/#services') ?>" class="block text-[13.5px] text-[#9E9E9E] hover:text-[#ED709E] transition-colors">
                             <?= esc($t) ?>
                         </a>
                     <?php endforeach; ?>

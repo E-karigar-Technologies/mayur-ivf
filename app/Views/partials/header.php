@@ -14,7 +14,7 @@ $navLinks = [
     <div class="max-w-[1280px] mx-auto px-6 lg:px-8">
         <div class="flex items-center justify-between h-[72px]">
             <!-- Logo -->
-            <a href="#home" class="flex items-center gap-2 group py-1">
+            <a href="<?= base_url('/#home') ?>" class="flex items-center gap-2 group py-1">
                 <img
                     src="<?= base_url('images/logo.png') ?>"
                     alt="Mayor's IVF — A Unit Of Mayors Eye Clinic & Fertility Centre"
@@ -36,7 +36,7 @@ $navLinks = [
 
             <!-- Desktop CTA -->
             <a
-                href="#book"
+                href="<?= base_url('/#book') ?>"
                 class="hidden lg:inline-flex items-center gap-2 bg-[#ED709E] hover:bg-[#e05a8a] text-white text-[13.5px] font-semibold px-5 py-2.5 rounded-full transition-all duration-200 shadow-sm hover:shadow-md font-display"
             >
                 Book Consultation
@@ -83,7 +83,7 @@ $navLinks = [
                 </a>
             <?php endforeach; ?>
             <a
-                href="#book"
+                href="<?= base_url('/#book') ?>"
                 class="mobile-nav-link mt-6 inline-flex justify-center bg-[#ED709E] hover:bg-[#e05a8a] text-white text-[14px] font-semibold py-3 rounded-full font-display transition-colors"
             >
                 Book Appointment
@@ -94,7 +94,7 @@ $navLinks = [
 
 <!-- Mobile Floating CTA Button -->
 <a
-    href="#book"
+    href="<?= base_url('/#book') ?>"
     class="fixed bottom-6 right-6 z-40 lg:hidden bg-[#ED709E] text-white text-[13px] font-semibold px-5 py-3 rounded-full shadow-lg hover:bg-[#e05a8a] transition-all font-display"
 >
     Book Appointment
