@@ -52,8 +52,9 @@
         <!-- Navigation Links -->
         <?php
         $uri = service('uri');
-        $segment2 = $uri->getSegment(2, 'dashboard');
-        $segment3 = $uri->getSegment(3, '');
+        $segments = $uri->getSegments();
+        $segment2 = $segments[1] ?? 'dashboard';
+        $segment3 = $segments[2] ?? '';
         ?>
         <nav class="flex-1 px-4 py-6 space-y-1.5 overflow-y-auto">
             <div class="px-3 pb-2 text-[11px] font-bold tracking-[1px] text-[#6F6F6F] uppercase font-display">
