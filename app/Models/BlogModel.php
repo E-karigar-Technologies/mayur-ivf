@@ -39,21 +39,22 @@ class BlogModel extends Model
         try {
             $results = $this->where('is_published', 1)->orderBy('id', 'DESC')->findAll();
             if (!empty($results)) {
-                return $results;
+                return $this->formatArticles($results);
             }
         } catch (\Throwable $e) {
             // fallback
         }
 
-        return $this->getStaticArticles();
+        return $this->formatArticles($this->getStaticArticles());
     }
 
     public function getAllArticles(): array
     {
         try {
-            return $this->orderBy('id', 'DESC')->findAll();
+            $results = $this->orderBy('id', 'DESC')->findAll();
+            return $this->formatArticles($results);
         } catch (\Throwable $e) {
-            return $this->getStaticArticles();
+            return $this->formatArticles($this->getStaticArticles());
         }
     }
 
@@ -62,13 +63,19 @@ class BlogModel extends Model
         try {
             $featured = $this->where('is_published', 1)->where('is_featured', 1)->orderBy('id', 'DESC')->first();
             if ($featured) {
-                return $featured;
+                return $this->formatArticle($featured);
             }
-            return $this->where('is_published', 1)->orderBy('id', 'DESC')->first();
+            $first = $this->where('is_published', 1)->orderBy('id', 'DESC')->first();
+            if ($first) {
+                return $this->formatArticle($first);
+            }
         } catch (\Throwable $e) {
             $static = $this->getStaticArticles();
-            return $static[0] ?? null;
+            return $this->formatArticle($static[0] ?? null);
         }
+
+        $static = $this->getStaticArticles();
+        return $this->formatArticle($static[0] ?? null);
     }
 
     public function getByCategory(string $category): array
@@ -83,15 +90,17 @@ class BlogModel extends Model
                             ->orderBy('id', 'DESC')
                             ->findAll();
             if (!empty($results)) {
-                return $results;
+                return $this->formatArticles($results);
             }
         } catch (\Throwable $e) {
             // fallback
         }
 
-        return array_values(array_filter($this->getStaticArticles(), function ($a) use ($category) {
+        $filtered = array_values(array_filter($this->getStaticArticles(), function ($a) use ($category) {
             return strcasecmp($a['category'], $category) === 0;
         }));
+
+        return $this->formatArticles($filtered);
     }
 
     public function getBySlug(string $slug): ?array
@@ -99,7 +108,7 @@ class BlogModel extends Model
         try {
             $article = $this->where('slug', $slug)->first();
             if ($article) {
-                return $article;
+                return $this->formatArticle($article);
             }
         } catch (\Throwable $e) {
             // fallback
@@ -107,10 +116,28 @@ class BlogModel extends Model
 
         foreach ($this->getStaticArticles() as $article) {
             if ($article['slug'] === $slug) {
-                return $article;
+                return $this->formatArticle($article);
             }
         }
         return null;
+    }
+
+    private function formatArticle(?array $article): ?array
+    {
+        if (!$article) {
+            return null;
+        }
+        if (!isset($article['date'])) {
+            $article['date'] = isset($article['created_at']) 
+                ? date('M d, Y', strtotime($article['created_at'])) 
+                : date('M d, Y');
+        }
+        return $article;
+    }
+
+    private function formatArticles(array $articles): array
+    {
+        return array_values(array_filter(array_map([$this, 'formatArticle'], $articles)));
     }
 
     public function getCategories(): array

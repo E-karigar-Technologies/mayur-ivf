@@ -28,14 +28,14 @@
                         MB
                     </div>
                     <div>
-                        <div class="font-display font-bold text-[#252525]"><?= esc($article['author']) ?></div>
+                        <div class="font-display font-bold text-[#252525]"><?= esc($article['author'] ?? 'Dr. Meetu Bhushan') ?></div>
                         <div class="text-[12px] text-[#ED709E]">IVF Specialist · Fertility Consultant</div>
                     </div>
                 </div>
                 <div class="flex items-center gap-4 text-[12.5px]">
-                    <span><?= esc($article['date']) ?></span>
+                    <span><?= esc($article['date'] ?? date('M d, Y')) ?></span>
                     <span>•</span>
-                    <span><?= esc($article['read_time']) ?></span>
+                    <span><?= esc($article['read_time'] ?? '5 min read') ?></span>
                 </div>
             </div>
         </div>

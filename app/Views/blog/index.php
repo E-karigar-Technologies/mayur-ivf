@@ -82,8 +82,8 @@
                                     MB
                                 </div>
                                 <div>
-                                    <div class="font-display text-[13px] font-bold text-[#252525]"><?= esc($featured['author']) ?></div>
-                                    <div class="text-[11.5px] text-[#6F6F6F]"><?= esc($featured['date']) ?></div>
+                                    <div class="font-display text-[13px] font-bold text-[#252525]"><?= esc($featured['author'] ?? 'Dr. Meetu Bhushan') ?></div>
+                                    <div class="text-[11.5px] text-[#6F6F6F]"><?= esc($featured['date'] ?? date('M d, Y')) ?></div>
                                 </div>
                             </div>
                             <a
@@ -115,9 +115,9 @@
             <?php foreach ($articles as $post): ?>
                 <article
                     class="blog-card bg-white rounded-2xl border border-[#EDEDED] overflow-hidden hover:border-[#ED709E] hover:shadow-lg transition-all duration-300 flex flex-col group"
-                    data-category="<?= esc($post['category']) ?>"
-                    data-title="<?= esc(strtolower($post['title'])) ?>"
-                    data-desc="<?= esc(strtolower($post['desc'])) ?>"
+                    data-category="<?= esc($post['category'] ?? 'Fertility') ?>"
+                    data-title="<?= esc(strtolower($post['title'] ?? '')) ?>"
+                    data-desc="<?= esc(strtolower($post['desc'] ?? '')) ?>"
                 >
                     <a href="<?= base_url('blog/' . $post['slug']) ?>" class="block overflow-hidden aspect-[16/9] bg-[#FCEAF2] relative">
                         <img
@@ -127,15 +127,15 @@
                             loading="lazy"
                         />
                         <span class="absolute top-3 left-3 text-[11px] font-bold tracking-[0.5px] text-[#ED709E] bg-white/95 backdrop-blur-xs px-3 py-1 rounded-full shadow-2xs">
-                            <?= esc($post['category']) ?>
+                            <?= esc($post['category'] ?? 'Fertility') ?>
                         </span>
                     </a>
 
                     <div class="p-6 flex flex-col flex-1">
                         <div class="flex items-center gap-2 text-[12px] text-[#6F6F6F] mb-2.5">
-                            <span><?= esc($post['date']) ?></span>
+                            <span><?= esc($post['date'] ?? date('M d, Y')) ?></span>
                             <span>•</span>
-                            <span><?= esc($post['read_time']) ?></span>
+                            <span><?= esc($post['read_time'] ?? '5 min read') ?></span>
                         </div>
 
                         <h3 class="font-display text-[18px] font-bold text-[#252525] mb-2.5 group-hover:text-[#ED709E] transition-colors leading-[1.35]">
