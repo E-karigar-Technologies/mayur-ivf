@@ -14,7 +14,7 @@
                 <!-- Quick Contact options -->
                 <div class="space-y-4">
                     <a
-                        href="tel:+919999999999"
+                        href="tel:+919717896366"
                         class="flex items-center gap-4 bg-white rounded-xl p-5 border border-[#EDEDED] hover:border-[#ED709E] transition-colors group shadow-2xs"
                     >
                         <div class="w-11 h-11 rounded-full bg-[#FFF4F8] flex items-center justify-center group-hover:bg-[#FCEAF2] transition-colors">
@@ -24,12 +24,12 @@
                         </div>
                         <div>
                             <div class="font-display text-[13px] font-bold text-[#252525]">Call Us</div>
-                            <div class="text-[13px] text-[#6F6F6F]">+91 99999 99999</div>
+                            <div class="text-[13px] text-[#6F6F6F]">+91 97178 96366</div>
                         </div>
                     </a>
 
                     <a
-                        href="https://wa.me/919999999999"
+                        href="https://wa.me/919717896366"
                         target="_blank"
                         rel="noopener noreferrer"
                         class="flex items-center gap-4 bg-white rounded-xl p-5 border border-[#EDEDED] hover:border-[#25D366] transition-colors group shadow-2xs"

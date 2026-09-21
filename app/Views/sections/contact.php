@@ -30,7 +30,9 @@
                         </svg>
                     </div>
                     <div class="font-display text-[13px] font-bold text-[#252525] mb-1">Phone</div>
-                    <div class="text-[13px] text-[#6F6F6F] leading-[1.6]">+91 99999 99999<br>+91 11 2345 6789</div>
+                    <div class="text-[13px] text-[#6F6F6F] leading-[1.6]">
+                        <a href="tel:+919717896366" class="hover:text-[#ED709E] transition-colors font-medium">+91 97178 96366</a>
+                    </div>
                 </div>
 
                 <!-- Email -->
