@@ -1,12 +1,12 @@
 <?php
 $navLinks = [
-    ['label' => 'Home', 'href' => '#home'],
-    ['label' => 'About Dr. Meetu', 'href' => '#about'],
-    ['label' => 'Fertility Treatments', 'href' => '#services'],
-    ['label' => 'IVF Journey', 'href' => '#ivf-journey'],
-    ['label' => 'Patient Stories', 'href' => '#testimonials'],
-    ['label' => 'Blog', 'href' => '#blog'],
-    ['label' => 'Contact', 'href' => '#contact'],
+    ['label' => 'Home', 'href' => base_url('/#home')],
+    ['label' => 'About Dr. Meetu', 'href' => base_url('/#about')],
+    ['label' => 'Fertility Treatments', 'href' => base_url('/#services')],
+    ['label' => 'IVF Journey', 'href' => base_url('/#ivf-journey')],
+    ['label' => 'Patient Stories', 'href' => base_url('/#testimonials')],
+    ['label' => 'Blog', 'href' => base_url('blog')],
+    ['label' => 'Contact', 'href' => base_url('/#contact')],
 ];
 ?>
 

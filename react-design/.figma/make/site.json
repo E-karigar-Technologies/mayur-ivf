@@ -1,0 +1,10 @@
+{
+  "description": "Create, edit, and manage documents seamlessly with an intuitive interface, enhancing productivity and collaboration for users.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
