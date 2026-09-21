@@ -50,7 +50,7 @@ class AdminSeeder extends Seeder
             }
         }
 
-        // 3. Seed Sample Inquiries for instant testing
+        // 3. Seed Sample Inquiries
         $inquiryBuilder = $db->table('inquiries');
         if ($inquiryBuilder->countAllResults() === 0) {
             $inquiryBuilder->insertBatch([
@@ -91,6 +91,31 @@ class AdminSeeder extends Seeder
                     'updated_at'        => date('Y-m-d H:i:s', strtotime('-3 days')),
                 ],
             ]);
+        }
+
+        // 4. Seed Categories
+        $catBuilder = $db->table('categories');
+        $initialCategories = [
+            ['name' => 'IVF', 'slug' => 'ivf', 'description' => 'In Vitro Fertilization & Assisted Reproductive Technologies'],
+            ['name' => 'Fertility', 'slug' => 'fertility', 'description' => 'General Fertility Assessment, Guidance & Diagnosis'],
+            ['name' => 'Preservation', 'slug' => 'preservation', 'description' => 'Egg Freezing & Embryo Vitrification'],
+            ['name' => 'PCOS', 'slug' => 'pcos', 'description' => 'Polycystic Ovarian Syndrome & Hormonal Management'],
+            ['name' => 'Infertility', 'slug' => 'infertility', 'description' => 'Unexplained Infertility & Advanced Care'],
+            ['name' => 'Treatments', 'slug' => 'treatments', 'description' => 'IUI, ICSI, Laparoscopy & Clinical Treatments'],
+            ['name' => 'Male Fertility', 'slug' => 'male-fertility', 'description' => 'Sperm Health, Diagnostics & Andrology Solutions'],
+        ];
+
+        foreach ($initialCategories as $cat) {
+            $exists = $catBuilder->where('slug', $cat['slug'])->get()->getRow();
+            if (!$exists) {
+                $catBuilder->insert([
+                    'name'        => $cat['name'],
+                    'slug'        => $cat['slug'],
+                    'description' => $cat['description'],
+                    'created_at'  => date('Y-m-d H:i:s'),
+                    'updated_at'  => date('Y-m-d H:i:s'),
+                ]);
+            }
         }
     }
 }

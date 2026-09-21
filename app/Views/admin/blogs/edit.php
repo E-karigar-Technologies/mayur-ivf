@@ -75,7 +75,12 @@
             <!-- Category, Author, Read Time -->
             <div class="grid sm:grid-cols-3 gap-4">
                 <div>
-                    <label for="category" class="block text-[13px] font-bold text-[#252525] mb-2 font-display">Category *</label>
+                    <div class="flex items-center justify-between mb-2">
+                        <label for="category" class="block text-[13px] font-bold text-[#252525] font-display">Category *</label>
+                        <a href="<?= base_url('admin/categories') ?>" target="_blank" class="text-xs text-[#ED709E] hover:underline font-semibold flex items-center gap-1">
+                            <span>+ Manage Categories</span>
+                        </a>
+                    </div>
                     <select
                         id="category"
                         name="category"

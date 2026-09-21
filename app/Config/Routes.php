@@ -23,6 +23,12 @@ $routes->group('admin', ['filter' => 'adminauth'], static function ($routes) {
     $routes->post('inquiries/update-status/(:num)', 'Admin\Inquiries::updateStatus/$1');
     $routes->post('inquiries/delete/(:num)', 'Admin\Inquiries::delete/$1');
 
+    // Categories
+    $routes->get('categories', 'Admin\Categories::index');
+    $routes->post('categories/store', 'Admin\Categories::store');
+    $routes->post('categories/update/(:num)', 'Admin\Categories::update/$1');
+    $routes->post('categories/delete/(:num)', 'Admin\Categories::delete/$1');
+
     // Blog Articles
     $routes->get('blogs', 'Admin\Blogs::index');
     $routes->get('blogs/create', 'Admin\Blogs::create');

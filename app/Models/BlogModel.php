@@ -111,6 +111,17 @@ class BlogModel extends Model
     public function getCategories(): array
     {
         try {
+            $db = \Config\Database::connect();
+            $cats = $db->table('categories')->select('name')->orderBy('name', 'ASC')->get()->getResultArray();
+            if (!empty($cats)) {
+                $names = array_column($cats, 'name');
+                return array_merge(['All'], array_unique(array_filter($names)));
+            }
+        } catch (\Throwable $e) {
+            // fallback
+        }
+
+        try {
             $dbCats = $this->select('category')->distinct()->findAll();
             if (!empty($dbCats)) {
                 $names = array_column($dbCats, 'category');
