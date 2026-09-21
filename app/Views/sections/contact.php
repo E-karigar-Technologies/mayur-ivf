@@ -43,7 +43,9 @@
                         </svg>
                     </div>
                     <div class="font-display text-[13px] font-bold text-[#252525] mb-1">Email</div>
-                    <div class="text-[13px] text-[#6F6F6F] leading-[1.6]">info@drmeetu.com<br>care@mayurivf.com</div>
+                    <div class="text-[13px] text-[#6F6F6F] leading-[1.6]">
+                        <a href="mailto:info@mayorseyeivf.com" class="hover:text-[#ED709E] transition-colors font-medium">info@mayorseyeivf.com</a>
+                    </div>
                 </div>
 
                 <!-- Working Hours -->
