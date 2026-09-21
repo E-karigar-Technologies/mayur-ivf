@@ -29,6 +29,11 @@ class BlogModel extends Model
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
 
+    public function getAll(): array
+    {
+        return $this->getPublished();
+    }
+
     public function getPublished(): array
     {
         try {
