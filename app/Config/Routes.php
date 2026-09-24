@@ -29,6 +29,15 @@ $routes->group('admin', ['filter' => 'adminauth'], static function ($routes) {
     $routes->post('categories/update/(:num)', 'Admin\Categories::update/$1');
     $routes->post('categories/delete/(:num)', 'Admin\Categories::delete/$1');
 
+    // Gallery Media
+    $routes->get('gallery', 'Admin\Gallery::index');
+    $routes->get('gallery/create', 'Admin\Gallery::create');
+    $routes->post('gallery/store', 'Admin\Gallery::store');
+    $routes->get('gallery/edit/(:num)', 'Admin\Gallery::edit/$1');
+    $routes->post('gallery/update/(:num)', 'Admin\Gallery::update/$1');
+    $routes->get('gallery/toggle-status/(:num)', 'Admin\Gallery::toggleStatus/$1');
+    $routes->post('gallery/delete/(:num)', 'Admin\Gallery::delete/$1');
+
     // Blog Articles
     $routes->get('blogs', 'Admin\Blogs::index');
     $routes->get('blogs/create', 'Admin\Blogs::create');

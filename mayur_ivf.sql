@@ -119,3 +119,38 @@ INSERT INTO `inquiries` (`id`, `name`, `phone`, `email`, `age`, `appointment_dat
 (2, 'Rahul & Sunita Verma', '+91 98111 22334', 'rahul.verma@example.com', 34, DATE_ADD(CURDATE(), INTERVAL 3 DAY), 'Fertility Assessment', 'We have been trying for 2 years. Want to do comprehensive tests.', 'Contacted', NOW(), NOW()),
 (3, 'Neha Gupta', '+91 99887 76655', 'neha.gupta@example.com', 29, DATE_ADD(CURDATE(), INTERVAL 5 DAY), 'PCOS Consultation', 'Diagnosed with irregular periods and PCOS, seeking advice on conceiving naturally or with IUI.', 'Scheduled', NOW(), NOW())
 ON DUPLICATE KEY UPDATE `name` = VALUES(`name`);
+
+
+-- --------------------------------------------------------------------
+-- 5. Table: gallery (Dynamic Clinical Photos & Procedure Videos)
+-- --------------------------------------------------------------------
+DROP TABLE IF EXISTS `gallery`;
+CREATE TABLE `gallery` (
+  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(255) NOT NULL,
+  `type` VARCHAR(20) NOT NULL DEFAULT 'image', -- 'image' or 'video'
+  `file_url` TEXT DEFAULT NULL,
+  `thumbnail_url` TEXT DEFAULT NULL,
+  `video_source` VARCHAR(50) DEFAULT NULL, -- 'upload', 'youtube', 'vimeo', 'external'
+  `video_embed_url` TEXT DEFAULT NULL,
+  `category` VARCHAR(100) NOT NULL DEFAULT 'Clinic & Labs',
+  `description` TEXT DEFAULT NULL,
+  `sort_order` INT(11) NOT NULL DEFAULT 0,
+  `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `idx_gallery_type` (`type`),
+  KEY `idx_gallery_category` (`category`),
+  KEY `idx_gallery_active` (`is_active`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `gallery` (`id`, `title`, `type`, `file_url`, `thumbnail_url`, `video_source`, `video_embed_url`, `category`, `description`, `sort_order`, `is_active`, `created_at`, `updated_at`) VALUES
+(1, 'Advanced IVF & Embryology Laboratory', 'image', 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1200&h=800&fit=crop&auto=format', 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&h=400&fit=crop&auto=format', NULL, NULL, 'Clinic & Labs', 'Our state-of-the-art cleanroom embryology laboratory equipped with modern micromanipulators and laser hatching technology.', 1, 1, NOW(), NOW()),
+(2, 'Inside Mayor\'s IVF Centre: Patient Journey & Care', 'video', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&h=400&fit=crop&auto=format', 'youtube', 'https://www.youtube.com/embed/dQw4w9WgXcQ', 'Success Moments', 'A guided walk-through of Dr. Meetu Bhushan\'s personalized consultation process and compassionate reproductive care.', 2, 1, NOW(), NOW()),
+(3, 'High-Resolution 4D Ultrasound Suite', 'image', 'https://images.unsplash.com/photo-1516549655169-df83a0774514?w=1200&h=800&fit=crop&auto=format', 'https://images.unsplash.com/photo-1516549655169-df83a0774514?w=600&h=400&fit=crop&auto=format', NULL, NULL, 'Clinic & Labs', 'Advanced follicular monitoring and diagnostic imaging with crystal-clear 4D ultrasound equipment.', 3, 1, NOW(), NOW()),
+(4, 'Precision ICSI & Micromanipulation Procedure', 'image', 'https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=1200&h=800&fit=crop&auto=format', 'https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=600&h=400&fit=crop&auto=format', NULL, NULL, 'Procedures', 'Intracytoplasmic Sperm Injection performed under inverted high-magnification microscopes.', 4, 1, NOW(), NOW()),
+(5, 'Welcome to New Beginnings: Celebrating Success', 'video', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=600&h=400&fit=crop&auto=format', 'youtube', 'https://www.youtube.com/embed/dQw4w9WgXcQ', 'Success Moments', 'Hear touching success stories and joyous moments from families blessed with parenthood.', 5, 1, NOW(), NOW()),
+(6, 'Comfortable Private Consultation Chambers', 'image', 'https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=1200&h=800&fit=crop&auto=format', 'https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=600&h=400&fit=crop&auto=format', NULL, NULL, 'Clinic & Labs', 'Designed with privacy, empathy, and serene ambiance for detailed one-on-one patient counseling.', 6, 1, NOW(), NOW())
+ON DUPLICATE KEY UPDATE `title` = VALUES(`title`);
+

@@ -117,5 +117,30 @@ class AdminSeeder extends Seeder
                 ]);
             }
         }
+
+        // 5. Seed Gallery Items
+        $galleryModel = new \App\Models\GalleryModel();
+        $initialGallery = $galleryModel->getStaticGallery();
+        $galleryBuilder = $db->table('gallery');
+
+        foreach ($initialGallery as $item) {
+            $exists = $galleryBuilder->where('title', $item['title'])->get()->getRow();
+            if (!$exists) {
+                $galleryBuilder->insert([
+                    'title'           => $item['title'],
+                    'type'            => $item['type'],
+                    'file_url'        => $item['file_url'],
+                    'thumbnail_url'   => $item['thumbnail_url'],
+                    'video_source'    => $item['video_source'],
+                    'video_embed_url' => $item['video_embed_url'],
+                    'category'        => $item['category'],
+                    'description'     => $item['description'],
+                    'sort_order'      => $item['sort_order'],
+                    'is_active'       => $item['is_active'],
+                    'created_at'      => date('Y-m-d H:i:s'),
+                    'updated_at'      => date('Y-m-d H:i:s'),
+                ]);
+            }
+        }
     }
 }

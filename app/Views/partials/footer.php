@@ -4,6 +4,7 @@ $footerLinks = [
     ['label' => 'About', 'href' => base_url('/#about')],
     ['label' => 'Treatments', 'href' => base_url('/#services')],
     ['label' => 'IVF Journey', 'href' => base_url('/#ivf-journey')],
+    ['label' => 'Gallery', 'href' => base_url('/#gallery')],
     ['label' => 'Patient Stories', 'href' => base_url('/#testimonials')],
     ['label' => 'Blog', 'href' => base_url('blog')],
     ['label' => 'Contact', 'href' => base_url('/#contact')],

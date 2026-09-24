@@ -23,7 +23,10 @@
     <!-- 7. Statistics -->
     <?= $this->include('sections/stats') ?>
 
-    <!-- 8. Testimonials -->
+    <!-- 8. Real Photo & Video Gallery -->
+    <?= $this->include('sections/gallery') ?>
+
+    <!-- 9. Testimonials -->
     <?= $this->include('sections/testimonials') ?>
 
     <!-- 9. Frequently Asked Questions -->
