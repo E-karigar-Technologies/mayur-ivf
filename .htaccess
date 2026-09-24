@@ -1,0 +1,21 @@
+# ====================================================================
+# Mayur IVF - Root cPanel / Apache Compatibility .htaccess
+# ====================================================================
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Block direct access to hidden files and sensitive framework directories
+    RewriteRule ^(\.env|\.git|app|writable|system|tests) - [F,L,NC]
+
+    # Route all requests to public directory
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+<IfModule !mod_rewrite.c>
+    ErrorDocument 404 /public/index.php
+</IfModule>
+
+# Disable directory listing
+Options -Indexes
