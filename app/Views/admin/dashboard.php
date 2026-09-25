@@ -3,7 +3,7 @@
 <?= $this->section('content') ?>
 
 <!-- Metric Stat Cards -->
-<div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-8">
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
     <!-- Total Inquiries -->
     <div class="bg-white rounded-3xl p-6 border border-[#EDEDED] shadow-2xs">
         <div class="flex items-center justify-between mb-4">
@@ -75,24 +75,6 @@
             Published blogs
         </div>
     </div>
-
-    <!-- Gallery Media -->
-    <a href="<?= base_url('admin/gallery') ?>" class="bg-white rounded-3xl p-6 border border-[#EDEDED] shadow-2xs hover:border-[#ED709E] transition-colors block group">
-        <div class="flex items-center justify-between mb-4">
-            <span class="text-[12px] font-bold tracking-[0.5px] uppercase text-[#6F6F6F] group-hover:text-[#ED709E] font-display transition-colors">Gallery Media</span>
-            <div class="w-10 h-10 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                </svg>
-            </div>
-        </div>
-        <div class="font-display text-[30px] font-extrabold text-[#252525] group-hover:text-[#ED709E] leading-none mb-2 transition-colors">
-            <?= esc($totalGallery ?? 0) ?>
-        </div>
-        <div class="text-[12px] text-[#6F6F6F]">
-            Photos &amp; videos live
-        </div>
-    </a>
 </div>
 
 <!-- Main Sections Grid: Recent Inquiries + Recent Articles -->

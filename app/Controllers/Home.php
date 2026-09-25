@@ -103,4 +103,18 @@ class Home extends BaseController
 
         return view('blog/show', $data);
     }
+
+    public function gallery(): string
+    {
+        $category = $this->request->getGet('category') ?? 'All';
+
+        $data = [
+            'title'          => 'Photo & Video Gallery | Dr. Meetu Bhushan - Mayor\'s IVF',
+            'items'          => \App\Models\GalleryModel::getCategoryItems($category),
+            'categories'     => \App\Models\GalleryModel::getCategories(),
+            'activeCategory' => $category,
+        ];
+
+        return view('gallery/index', $data);
+    }
 }
