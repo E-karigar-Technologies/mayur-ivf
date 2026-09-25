@@ -54,6 +54,13 @@
             >
                 💖 Newborn Joy
             </button>
+            <button
+                type="button"
+                onclick="filterGallery('events & outreach', this)"
+                class="gallery-page-filter-btn px-6 py-2.5 rounded-full text-[13.5px] font-semibold font-display transition-all duration-200 bg-white text-[#6F6F6F] hover:text-[#ED709E] border border-[#EDEDED]"
+            >
+                🤝 Events &amp; Outreach
+            </button>
         </div>
 
         <!-- All Media Grid -->
