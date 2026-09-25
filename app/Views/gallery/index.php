@@ -14,13 +14,13 @@
         <!-- Page Header -->
         <div class="max-w-3xl mb-12">
             <div class="inline-block text-[11px] font-bold tracking-[1.5px] uppercase text-[#ED709E] bg-[#FFF4F8] px-3.5 py-1 rounded-full border border-[#FCEAF2] mb-3">
-                Complete Collection
+                Patient Milestones &amp; Joy
             </div>
             <h1 class="font-display text-[34px] sm:text-[46px] font-extrabold text-[#252525] leading-[1.12] tracking-[-1.5px] mb-4">
-                Clinical Excellence, Labs &amp; Joyous Moments
+                Real Patient Success Moments
             </h1>
             <p class="text-[15.5px] text-[#6F6F6F] leading-[1.75]">
-                Explore our full gallery of advanced cleanroom IVF embryology laboratories, precision 4D ultrasound suites, patient recovery lounges, procedural techniques, and heartwarming family success stories.
+                Cherished genuine moments of parenthood dreams fulfilled, newborn blessings, and joyful clinic visits with Dr. Meetu Bhushan at Mayor's IVF Centre.
             </p>
         </div>
 
@@ -31,42 +31,28 @@
                 onclick="filterGallery('all', this)"
                 class="gallery-page-filter-btn active px-6 py-2.5 rounded-full text-[13.5px] font-semibold font-display transition-all duration-200 bg-[#ED709E] text-white shadow-xs"
             >
-                All Media (<?= count($items) ?>)
+                All Photos (<?= count($items) ?>)
             </button>
             <button
                 type="button"
-                onclick="filterGallery('image', this)"
+                onclick="filterGallery('twins blessing', this)"
                 class="gallery-page-filter-btn px-6 py-2.5 rounded-full text-[13.5px] font-semibold font-display transition-all duration-200 bg-white text-[#6F6F6F] hover:text-[#ED709E] border border-[#EDEDED]"
             >
-                📷 Photos (<?= count(array_filter($items, fn($i) => $i['type'] === 'image')) ?>)
+                👶 Twins Blessing
             </button>
             <button
                 type="button"
-                onclick="filterGallery('video', this)"
+                onclick="filterGallery('clinic milestones', this)"
                 class="gallery-page-filter-btn px-6 py-2.5 rounded-full text-[13.5px] font-semibold font-display transition-all duration-200 bg-white text-[#6F6F6F] hover:text-[#ED709E] border border-[#EDEDED]"
             >
-                🎬 Videos (<?= count(array_filter($items, fn($i) => $i['type'] === 'video')) ?>)
+                🏥 Clinic Milestones
             </button>
             <button
                 type="button"
-                onclick="filterGallery('clinic & labs', this)"
+                onclick="filterGallery('newborn joy', this)"
                 class="gallery-page-filter-btn px-6 py-2.5 rounded-full text-[13.5px] font-semibold font-display transition-all duration-200 bg-white text-[#6F6F6F] hover:text-[#ED709E] border border-[#EDEDED]"
             >
-                Clinic &amp; Labs
-            </button>
-            <button
-                type="button"
-                onclick="filterGallery('procedures', this)"
-                class="gallery-page-filter-btn px-6 py-2.5 rounded-full text-[13.5px] font-semibold font-display transition-all duration-200 bg-white text-[#6F6F6F] hover:text-[#ED709E] border border-[#EDEDED]"
-            >
-                Procedures
-            </button>
-            <button
-                type="button"
-                onclick="filterGallery('success moments', this)"
-                class="gallery-page-filter-btn px-6 py-2.5 rounded-full text-[13.5px] font-semibold font-display transition-all duration-200 bg-white text-[#6F6F6F] hover:text-[#ED709E] border border-[#EDEDED]"
-            >
-                Success Moments
+                💖 Newborn Joy
             </button>
         </div>
 

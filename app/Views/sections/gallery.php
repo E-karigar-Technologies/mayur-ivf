@@ -13,13 +13,13 @@ $galleryItems = GalleryModel::getHomeGallery(8);
         <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-12">
             <div>
                 <p class="text-[11px] font-semibold tracking-[2px] text-[#ED709E] uppercase mb-3 font-display">
-                    Real Glimpses &amp; Infrastructure
+                    Real Patient Milestones &amp; Joy
                 </p>
                 <h2 class="font-display text-[32px] sm:text-[42px] font-extrabold text-[#252525] leading-[1.15] tracking-[-1px]">
-                    Photo &amp; Video Gallery
+                    Success Stories &amp; Photo Gallery
                 </h2>
                 <p class="text-[14.5px] text-[#6F6F6F] mt-2 max-w-xl">
-                    Experience our cleanroom embryology laboratory, advanced 4D ultrasound suites, patient care facilities, and joyous milestones.
+                    Genuine moments of hope, joy, and healthy newborn blessings with Dr. Meetu Bhushan at Mayor's IVF Centre.
                 </p>
             </div>
 
@@ -27,7 +27,7 @@ $galleryItems = GalleryModel::getHomeGallery(8);
                 href="<?= base_url('gallery') ?>"
                 class="inline-flex items-center gap-2 text-[#ED709E] text-[14px] font-semibold hover:gap-3 transition-all font-display self-start sm:self-auto shrink-0"
             >
-                <span>View Full Gallery (16+ Photos &amp; Videos)</span>
+                <span>View Full Gallery</span>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
