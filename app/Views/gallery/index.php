@@ -81,29 +81,6 @@
                             loading="lazy"
                         />
 
-                        <!-- Badges -->
-                        <div class="absolute top-3 left-3 flex items-center gap-1.5">
-                            <?php if ($item['type'] === 'video'): ?>
-                                <span class="inline-flex items-center gap-1 bg-[#252525]/85 backdrop-blur-xs text-white text-[10.5px] font-bold px-2.5 py-0.5 rounded-full shadow-sm font-display">
-                                    <svg class="w-3 h-3 text-[#ED709E] fill-current" viewBox="0 0 24 24">
-                                        <path d="M8 5v14l11-7z"/>
-                                    </svg>
-                                    Video
-                                </span>
-                            <?php else: ?>
-                                <span class="inline-flex items-center gap-1 bg-white/90 backdrop-blur-xs text-[#ED709E] text-[10.5px] font-bold px-2.5 py-0.5 rounded-full shadow-sm font-display">
-                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                                    </svg>
-                                    Photo
-                                </span>
-                            <?php endif; ?>
-
-                            <span class="bg-[#FFF4F8]/90 backdrop-blur-xs text-[#6F6F6F] text-[10.5px] font-semibold px-2 py-0.5 rounded-full border border-[#FCEAF2] font-display">
-                                <?= esc($item['category']) ?>
-                            </span>
-                        </div>
-
                         <!-- Hover Icon -->
                         <?php if ($item['type'] === 'video'): ?>
                             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-center justify-center">
